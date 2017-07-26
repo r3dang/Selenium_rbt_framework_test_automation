@@ -19,15 +19,15 @@ import selenium.common.exceptions
 
 # Opens Selenium Webdriver and opens url given
 def selenium_init(url):
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
-    driver.get(url)
+    web_driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    web_driver.get(url)
     time.sleep(5)
-    return driver
+    return web_driver
 
 
 # Closes webdriver
-def selenium_tear_down(driver):
-    driver.close()
+def selenium_tear_down(web_driver):
+    web_driver.close()
 
 
 # Funtion that searches for elements in a search bar.
