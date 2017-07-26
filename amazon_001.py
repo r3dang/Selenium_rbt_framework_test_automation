@@ -59,14 +59,13 @@ element = driver.find_element_by_id('result_' + str(query_index))
 while element:
     try:
         element = driver.find_element_by_id('result_' + str(query_index))
-        order_text = str(element.text)
-        check_for_text_on_page(order_text, "iPhone 7")
+        check_for_text_on_page(str(element.text), "iPhone 7")
         query_index += 1
     except selenium.common.exceptions.NoSuchElementException:
         print("Could not find element " + str(query_index))
         break
     except AssertionError:
-        print_order_text(order_text, query_index)
+        print_order_text(str(element.text), query_index)
         break
 
 selenium_tear_down(driver)
