@@ -55,7 +55,11 @@ search_bar = driver.find_element_by_id('twotabsearchtextbox')
 search_query(search_bar, "iPhone 7")
 
 query_index = 0
-element = driver.find_element_by_id('result_' + str(query_index))
+try:
+    element = driver.find_element_by_id('result_' + str(query_index))
+except selenium.common.exceptions.NoSuchElementException:
+    print("No elements exist on page")
+
 while element:
     try:
         element = driver.find_element_by_id('result_' + str(query_index))
