@@ -15,6 +15,8 @@ import selenium.common.exceptions
 '''
 
 ''' Function Definitions '''
+
+
 # Opens Selenium Webdriver and opens url given
 def selenium_init(url):
     driver = webdriver.Chrome('/usr/local/bin/chromedriver')
@@ -22,9 +24,11 @@ def selenium_init(url):
     time.sleep(5)
     return driver
 
+
 # Closes webdriver
 def selenium_tear_down(driver):
     driver.close()
+
 
 # Funtion that searches for elements in a search bar.
 def search_query(web_element, search_text):
@@ -32,13 +36,15 @@ def search_query(web_element, search_text):
     web_element.send_keys(search_text)
     web_element.send_keys(Keys.RETURN)
 
+
 def print_order_text(order_name, order_number):
     print(order_name + '\n')
     order_number += 1
     print("This is order " + str(order_number) + " on the page")
 
-def check_for_text_on_page(order_text, contain_string):
-    assert order_text.__contains__(contain_string)
+
+def check_for_text_on_page(order_string, contain_string):
+    assert order_string.__contains__(contain_string)
 
 ''' End of function definitions'''
 
